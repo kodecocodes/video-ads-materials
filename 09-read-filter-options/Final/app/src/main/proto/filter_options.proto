@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_package = "com.raywenderlich.android.learningcompanion.data";
+option java_multiple_files = true;
+
+message FilterOption {
+
+  enum Filter {
+    NONE = 0;
+    BEGINNER = 1;
+    ADVANCED = 2;
+    COMPLETED = 3;
+    BEGINNER_ADVANCED = 4;
+    BEGINNER_COMPLETED = 5;
+    ADVANCED_COMPLETED = 6;
+    ALL = 7;
+  }
+
+  Filter filter = 1;
+}

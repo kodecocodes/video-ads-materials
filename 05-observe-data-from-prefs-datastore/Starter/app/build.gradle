@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.protobuf'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion
+
+  defaultConfig {
+    applicationId "com.raywenderlich.android.learningcompanion"
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  kotlinOptions {
+    jvmTarget = JavaVersion.VERSION_1_8.toString()
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+  // Kotlin
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+  // Ktx
+  implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+  implementation "androidx.fragment:fragment-ktx:1.2.5"
+
+  // Support Libraries
+  implementation 'androidx.appcompat:appcompat:1.2.0'
+  implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+  implementation 'com.google.android.material:material:1.2.1'
+
+  // Preferences DataStore
+  implementation "androidx.datastore:datastore-preferences:1.0.0-alpha05"
+
+  // Proto DataStore
+  implementation "androidx.datastore:datastore-core:1.0.0-alpha05"
+  implementation "com.google.protobuf:protobuf-javalite:3.11.0"
+
+  // Hilt DI
+  implementation "com.google.dagger:hilt-android:2.28.3-alpha"
+  kapt "com.google.dagger:hilt-android-compiler:2.28.3-alpha"
+  implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02'
+  kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
+}

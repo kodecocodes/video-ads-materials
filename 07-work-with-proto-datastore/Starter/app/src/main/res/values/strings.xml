@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">LearningCompanion</string>
+  <string name="difficulty_level">Difficulty level</string>
+  <string name="beginner">Beginner</string>
+  <string name="advanced">Advanced</string>
+  <string name="completed">Completed</string>
+  <string name="night_mode">Night mode</string>
+</resources>
